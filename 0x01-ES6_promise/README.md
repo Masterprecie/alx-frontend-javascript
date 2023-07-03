@@ -1,9 +1,12 @@
-# 0x00-ES6_basic
+# 0x01-ES6_promise
+## At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-This project was further practice in working with API's. I collected data from the
-[JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/), and learned how
-to export it to either CSV or JSON format.
-
+### Promises (how, why, and what)
+### How to use the then, resolve, catch methods
+### How to use every method of the Promise object
+### Throw / Try
+### The await operator
+### How to use an async function
 ## Tasks :page_with_curl:
 
 * **0. Const or let?**

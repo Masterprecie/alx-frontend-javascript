@@ -1,4 +1,4 @@
-# 0x03 ES6 data manipulation
+# 0x03-ES6_data_manipulation
 
 ## At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 ### How to use map, filter and reduce on arrays
@@ -7,88 +7,170 @@
 
 ## Tasks :page_with_curl:
 
-* **0. Basic list of objects**
-  * [0. Basic list of objects](./0-get_list_students.js):
-  Create a function named getListStudents that returns an array of objects.
-  Each object should have three attributes: id (Number), firstName (String), and location (String).
-  The array contains the following students in order:
-  Guillaume, id: 1, in San Francisco
-  James, id: 2, in Columbia
-  Serena, id: 5, in San Francisco
+* **0. You used to attend a place like this at some point**
+  * [0. You used to attend a place like this at some point](./0-classroom.js):
+ Implement a class named ClassRoom:
 
-* **1. More mapping**
-  * [1. More mapping](./1-get_list_student_ids.js): 
-  Create a function getListStudentIds that returns an array of ids from a list of object.
-  This function is taking one argument which is an array of objects - and this array is the same format as getListStudents from the previous task.
-  If the argument is not an array, the function is returning an empty array.
-  You must use the map function on the array.
+Prototype: export default class ClassRoom
+It should accept one attribute named maxStudentsSize (Number) and assigned to _maxStudentsSize
+
+* **1. Let's make some classrooms**
+  * [1. Let's make some classrooms](./1-make_classrooms.js): 
+  Import the ClassRoom class from 0-classroom.js.
+
+Implement a function named initializeRooms. It should return an array of 3 ClassRoom objects with the sizes 19, 20, and 34 (in this order).
+
+* **2. A Course, Getters, and Setters**
+  * [2. A Course, Getters, and Setters](./2-hbtn_course.js):
+    Implement a class named HolbertonCourse:
+      Constructor attributes:
+      * name (String)
+      * length (Number)
+      * students (array of Strings)
+      Make sure to verify the type of attributes during object creation
+      Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+      Implement a getter and setter for each attribute.
+
+* **3. Methods, static methods, computed methods names..... MONEY**
+  * [3. Methods, static methods, computed methods names..... MONEY](./3-currency.js):
+    Implement a class named Currency:
+
+    - Constructor attributes:
+    * code (String)
+    * name (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter and setter for each attribute.
+    Implement a method named displayFullCurrency that will return the attributes in the following format name (code).
+
+* **4. Pricing**
+  * [4. Pricing](./4-pricing.js):
+    Import the class Currency from 3-currency.js
+
+    Implement a class named Pricing:
+
+    Constructor attributes:
+    * amount (Number)
+    * currency (Currency)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter and setter for each attribute.
+    Implement a method named displayFullPrice that returns the attributes in the following format amount currency_name (currency_code).
+    Implement a static method named convertPrice. It should accept two arguments: amount (Number), conversionRate (Number). The function should return the amount multiplied by the conversion rate.
 
 
-* **2. Filter**
-  * [2. Filter](./2-get_students_by_loc.js):
-  Create a function getStudentsByLocation that returns an array of objects who are located in a specific citY
-  It should accept a list of students (from getListStudents) and a city (string) as parameters.
-  You must use the filter function on the array.
+* **5. A Building**
+  * [5. A Building](./5-building.js):
+ Implement a class named Building:
 
-* **3. Reduce**
-  * [3. Reduce](./3-get_ids_sum.js):
-  Create a function getStudentIdsSum that returns the sum of all the student ids.
-  It should accept a list of students (from getListStudents) as a parameter.
-  You must use the reduce function on the array.
+    Constructor attributes:
+   * sqft (Number)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter for each attribute.
+    Consider this class as an abstract class. And make sure that any class that extends from it should implement a method named evacuationWarningMessage.
+    If a class that extends from it does not have a evacuationWarningMessage method, throw an error with the message Class extending Building must override evacuationWarningMessage
 
-* **4. Combine**
-  * [4. Combine](./4-update_grade_by_city.js):
-  Create a function updateStudentGradeByCity that returns an array of students for a specific city with their new grade
-  It should accept a list of students (from getListStudents), a city (String), and newGrades (Array of “grade” objects) as parameters.
-  newGrades is an array of objects with this format:
-    {
-    studentId: 31,
-    grade: 78,
+* **6. Inheritance**
+  * [6. Inheritance](./6-sky_high.js):
+
+    Import Building from 5-building.js.
+
+    Implement a class named SkyHighBuilding that extends from Building:
+
+    Constructor attributes:
+    * sqft (Number) (must be assigned to the parent class Building)
+    * floors (Number)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter for each attribute.
+    Override the method named evacuationWarningMessage and return the following string Evacuate slowly the NUMBER_OF_FLOORS floors.
+
+* **7. Airport**
+  * [7. Airport](./7-airport.js):
+    Implement a class named Airport:
+
+    Constructor attributes:
+    * name (String)
+    * code (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    The default string description of the class should return the airport code (example below).
+
+* **8. Primitive - Holberton Class**
+  * [8. Primitive - Holberton Class](./8-hbtn_class.js):
+  Implement a class named HolbertonClass:
+
+    Constructor attributes:
+    * size (Number)
+    * location (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    When the class is cast into a Number, it should return the size.
+    When the class is cast into a String, it should return the location.a value starts with startString you only append the rest of the string. The string contains all the values of the set separated by -.
+
+* **9. Hoisting**
+  * [9. Hoisting](./9-hoisting.js):
+
+  Fix this code and make it work.
+
+  const class2019 = new HolbertonClass(2019, 'San Francisco');
+  const class2020 = new HolbertonClass(2020, 'San Francisco');
+
+export class HolbertonClass {
+  constructor(year, location) {
+    this._year = year;
+    this._location = location;
   }
-  If a student doesn’t have grade in newGrades, the final grade should be N/A.
-  You must use filter and map combined.
-    
-* **5. Typed Arrays**
-  * [5. Typed Arrays](./5-typed_arrays.js):
-  Create a function named createInt8TypedArray that returns a new ArrayBuffer with an Int8 value at a specific position.
-  It should accept three arguments: length (Number), position (Number), and value (Number).
-  If adding the value is not possible the error Position outside range should be thrown.
 
-* **6. Set data structure**
-  * [6. Set data structure](./6-set.js):
-  Create a function named setFromArray that returns a Set from an array.
-  It accepts an argument (Array, of any kind of element).
+  get year() {
+    return this._year;
+  }
+
+  get location() {
+    return this._location;
+  }
+}
+
+const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
+const student2 = new StudentHolberton('John', 'Doe', class2020);
+const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
+const student4 = new StudentHolberton('Donald', 'Bush', class2019);
+const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
+
+export class StudentHolberton {
+  constructor(firstName, lastName) {
+    this._firstName = firstName;
+    this._lastName = lastName;
+    this._holbertonClass = holbertonClass;
+  }
+
+  get fullName() {
+    return `${this._firstName} ${this._lastName}`;
+  }
+
+  get holbertonClass() {
+    return this.holbertonClass;
+  }
+
+  get fullStudentDescription() {
+    return `${self._firstName} ${self._lastName} - ${self._holbertonClass.year} - ${self._holbertonClass.location}`;
+  }
+}
 
 
-* **7. More set data structure**
-  * [7. More set data structure](./7-has_array_values.js):
-  Create a function named hasValuesFromArray that returns a boolean if all the elements in the array exist within the set.
-  It accepts two arguments: a set (Set) and an array (Array).
-  
-* **8. Clean set**
-  * [8. Clean set](./8-clean_set.js):
-  Create a function named cleanSet that returns a string of all the set values that start with a specific string (startString).
-  It accepts two arguments: a set (Set) and a startString (String).
-  When a value starts with startString you only append the rest of the string. The string contains all the values of the set separated by -.
+export const listOfStudents = [student1, student2, student3, student4, student5];
 
-* **9. Map data structure**
-  * [9. Map data structure](./9-groceries_list.js):
-  Create a function named groceriesList that returns a map of groceries with the following items (name, quantity):
-
-
-* **10. More map data structure**
-  * [10. More map data structure](./10-update_uniq_items.js):
+* **10. Vroom**
+  * [10. Vroom](./10-car.js):
   Create a function named updateUniqueItems that returns an updated map for all items with initial quantity at 1.
   It should accept a map as an argument. The map it accepts for argument is similar to the map you create in the previous task.
   For each entry of the map where the quantity is 1, update the quantity to 100. If updating the quantity is not possible (argument is not a map) the error Cannot process should be thrown.
 
-* **11. Weak link data structure**
-  * [11. Weak link data structure](./11-createEmployeesObject.js):
-  Export a const instance of WeakMap and name it weakMap.
-  Export a new function named queryAPI. It should accept an endpoint argument like so:
- {
-    protocol: 'http',
-    name: 'getUsers',
-  }
-  Track within the weakMap the number of times queryAPI is called for each endpoint.
-  When the number of queries is >= 5 throw an error with the message Endpoint load is high.
+* **11. EVCar**
+  * [11. EVCar](./100-evcar.js):
+  Import Car from 10-car.js.
+
+    Implement a class named EVCar that extends the Car class:
+
+    Constructor attributes:
+    * brand (String)
+    * motor (String)
+    * color (String)
+    * range (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    For privacy reasons, when cloneCar is called on a EVCar object, the object returned should be an instance of Car instead of EVCar.

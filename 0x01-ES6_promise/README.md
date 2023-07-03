@@ -9,87 +9,130 @@
 ### How to use an async function
 ## Tasks :page_with_curl:
 
-* **0. Const or let?**
-  * [0. Const or let?](./0-constant.js):
-  Modify;
-  Function taskFirst to instantiate variables using const
-  Function taskNext to instantiate variables using let
+* **0. Keep every promise you make and only make promises you can keep**
+  * [0. Keep every promise you make and only make promises you can keep](./0-promise.js):
+  Return a Promise using this prototype function getResponseFromAPI() 
  
-* **1. Block Scope**
-  * [1. Block Scope](./1-block-scoped.js): Given what you’ve read about var and hoisting, modify the variables inside the function taskBlock so that the variables aren’t overwritten inside the conditional block.
+* ***1. Don't make a promise...if you know you can't keep it**
+  * [1. Don't make a promise...if you know you can't keep it](./1-promise.js): 
+  Using the prototype below, return a promise. The parameter is a boolean.
+  getFullResponseFromAPI(success)
+    When the argument is:
+
+    * true
+      * resolve the promise by passing an object with 2 attributes:
+          * status: 200
+          * body: 'Success'
+    * false
+      * reject the promise with an error object with the message The fake API is not working currently
+
+* **2. Catch me if you can!**
+  * [2. Catch me if you can!](./2-then.js): 
+    Using the function prototype below
+
+    function handleResponseFromAPI(promise)
+    Append three handlers to the function:
+
+    * When the Promise resolves, return an object with the following attributes
+        * status: 200
+        * body: success
+    * When the Promise rejects, return an empty Error object
+    * For every resolution, log Got a response from the API to the console
+
+* **3. Handle multiple successful promises**
+  * [3. Handle multiple successful promises](./3-all.js):
+  In this file, import uploadPhoto and createUser from utils.js
+
+  Knowing that the functions in utils.js return promises, use the prototype below to collectively resolve all promises and log body firstName lastName to the console.
+
+  function handleProfileSignup()
+  In the event of an error, log Signup system offline to the console
+
+* **4. Simple promise**
+  * [4. Simple promise](./4-user-promise.js):
+    Using the following prototype
+
+    function signUpUser(firstName, lastName) {
+    }
+    That returns a resolved promise with this object:
+
+    {
+      firstName: value,
+      lastName: value,
+    }
+
+* **5. Reject the promises**
+  * [5. Reject the promises](./5-photo-reject.js):
+  Write and export a function named uploadPhoto. It should accept one argument fileName (string).
+
+  The function should return a Promise rejecting with an Error and the string $fileName cannot be processed
+
+  export default function uploadPhoto(filename) {
+
+  }
+
+* **6. Handle multiple promises**
+  * [6. Handle multiple promises](./6-final-user.js):
+ Import signUpUser from 4-user-promise.js and uploadPhoto from 5-photo-reject.js.
+
+  Write and export a function named handleProfileSignup. It should accept three arguments firstName (string), lastName (string), and fileName (string). The function should call the two other functions. When the promises are all settled it should return an array with the following structure:
+
+  [
+      {
+        status: status_of_the_promise,
+        value: value or error returned by the Promise
+      },
+      ...
+    ]
 
 
-* **2. Arrow Functions**
-  * [2. Arrow Functions](.2-arrow.js): Rewrite the following standard function to use ES6’s arrow syntax of the function add (it will be an anonymous function after)
+* **7. Load balancer**
+  * [7. Load balancer](./7-load_balancer.js):
+Write and export a function named loadBalancer. It should accept two arguments chinaDownload (Promise) and USDownload (Promise).
 
+The function should return the value returned by the promise that resolved the first.
 
-* **3. Parameter defaults**
-  * [3. Parameter defaults](./3-default-parameter.js):
- Condense the internals of the following function to 1 line - without changing the name of each function/variable.
- Hint: The key here to define default parameter values for the function parameters.
-
-* **4. Rest parameter syntax for functions**
-  * [4. Rest parameter syntax for functions](./4-rest-parameter.js):
- Modify the following function to return the number of arguments passed to it using the rest parameter syntax
-
- 
-* **5. The wonders of spread syntax**
-  * [5. The wonders of spread syntax](./5-spread-operator.js):
-  Using spread syntax, concatenate 2 arrays and each character of a string by modifying the function below. Your function body should be one line long.
-
-* **6. Take advantage of template literals**
-  * [6. Take advantage of template literals](./6-string-interpolation.js):
-  Rewrite the return statement to use a template literal so you can the substitute the variables you’ve defined.
-
-* **7. Object property value shorthand syntax**
-  * [7. Object property value shorthand syntax](./7-getBudgetObject.js):
-  Notice how the keys and the variable names are the same?
-  Modify the following function’s budget object to simply use the keyname instead.
-
-  
-* **8. No need to create empty objects before adding in properties**
-  * [8. No need to create empty objects before adding in properties](./8-getBudgetCurrentYear.js):
-  Rewrite the getBudgetForCurrentYear function to use ES6 computed property names on the budget object
-
-
-* **9. ES6 method properties**
-  * [9. ES6 method properties](./9-getFullBudget.js):
-Rewrite getFullBudgetObject to use ES6 method properties in the fullBudget object
-
-
-* **10. For...of Loops**
-  * [10. For...of Loops](./10-loops.js):
-Rewrite the function appendToEachArrayValue to use ES6’s for...of operator. And don’t forget that var is not ES6-friendly.
-
-
-* **11. Iterator**
-  * [11. Iterator](./11-createEmployeesObject.js):
- Write a function named createEmployeesObject that will receive two arguments:
-  departmentName (String)
-  employees (Array of Strings)
-
-
-* **12. Let's create a report object**
-  * [12. Let's create a report object](./12-createReportObject.js):
-Write a function named createReportObject whose parameter, employeesList, is the return value of the previous function createEmployeesObject.
-
-export default function createReportObject(employeesList) {
+export default function loadBalancer(chinaDownload, USDownload) {
 
 }
 
-createReportObject should return an object containing the key allEmployees and a method property called getNumberOfDepartments.
+* **8. Throw error / try catch**
+  * [8. Throw error / try catch](./8-try.js):
+Write a function named divideFunction that will accept two arguments: numerator (Number) and denominator (Number).
 
-allEmployees is a key that maps to an object containing the department name and a list of all the employees in that department. If you’re having trouble, use the spread syntax.
+When the denominator argument is equal to 0, the function should throw a new error with the message cannot divide by 0. Otherwise it should return the numerator divided by the denominator.
 
-The method property receives employeesList and returns the number of departments. I would suggest suggest thinking back to the ES6 method property syntax.
+export default function divideFunction(numerator, denominator) {
 
-* **13. Iterating through report objects**
-  * [13. Iterating through report objects](./100-createIteratorObject.js):
-Write a function named createIteratorObject, that will take into argument a report Object created with the previous function createReportObject.
+}
+* **9. Throw an error**
+  * [9. Throw an error](./9-try.js):
+Write a function named guardrail that will accept one argument mathFunction (Function).
 
-This function will return an iterator to go through every employee in every department.
+This function should create and return an array named queue.
 
-* **14. Iterate through object**
-  * [14. Iterate through object](./101-iterateThroughObject.js):
-  Finally, write a function named iterateThroughObject. The function’s parameter reportWithIterator is the return value from createIteratorObject.
+When the mathFunction function is executed, the value returned by the function should be appended to the queue. If this function throws an error, the error message should be appended to the queue. In every case, the message Guardrail was processed should be added to the queue.
 
+Example:
+
+[
+  1000,
+  'Guardrail was processed',
+]
+
+* **10. Await / Async**
+  * [10. For...of Loops](./100-await.js):
+Import uploadPhoto and createUser from utils.js
+
+Write an async function named asyncUploadUser that will call these two functions and return an object with the following format:
+
+{
+  photo: response_from_uploadPhoto_function,
+  user: response_from_createUser_function,
+}
+If one of the async function fails, return an empty object. Example:
+
+{
+  photo: null,
+  user: null,
+}

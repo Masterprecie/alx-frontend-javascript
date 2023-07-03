@@ -11,10 +11,10 @@
 
 * **0. You used to attend a place like this at some point**
   * [0. You used to attend a place like this at some point](./0-classroom.js):
- Implement a class named ClassRoom:
+  Implement a class named ClassRoom:
 
-Prototype: export default class ClassRoom
-It should accept one attribute named maxStudentsSize (Number) and assigned to _maxStudentsSize
+  Prototype: export default class ClassRoom
+  It should accept one attribute named maxStudentsSize (Number) and assigned to _maxStudentsSize
 
 * **1. Let's make some classrooms**
   * [1. Let's make some classrooms](./1-make_classrooms.js): 

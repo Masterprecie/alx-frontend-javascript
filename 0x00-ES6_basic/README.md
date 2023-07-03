@@ -1,8 +1,10 @@
 # 0x00-ES6_basic
 
-This project was further practice in working with API's. I collected data from the
-[JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/), and learned how
-to export it to either CSV or JSON format.
+## At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+### How to use map, filter and reduce on arrays
+### Typed arrays
+### The Set, Map, and Weak link data structures
+
 
 ## Tasks :page_with_curl:
 
@@ -17,7 +19,7 @@ to export it to either CSV or JSON format.
 
 
 * **2. Arrow Functions**
-  * [2. Arrow Functions](.2-arrow.js): Rewrite the following standard function to use ES6’s arrow syntax of the function add (it will be an anonymous function after)
+  * [2. Arrow Functions](./2-arrow.js): Rewrite the following standard function to use ES6’s arrow syntax of the function add (it will be an anonymous function after)
 
 
 * **3. Parameter defaults**

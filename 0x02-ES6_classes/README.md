@@ -1,97 +1,178 @@
 # 0x02-ES6_classes
 
 ## At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-
 ### How to define a Class
 ### How to add methods to a class
 ### Why and how to add a static method to a class
 ### How to extend a class from another
 ### Metaprogramming and symbols
 
-
 ## Tasks :page_with_curl:
 
-* **0. Const or let?**
-  * [0. Const or let?](./0-constant.js):
-  Modify;
-  Function taskFirst to instantiate variables using const
-  Function taskNext to instantiate variables using let
- 
-* **1. Block Scope**
-  * [1. Block Scope](./1-block-scoped.js): Given what you’ve read about var and hoisting, modify the variables inside the function taskBlock so that the variables aren’t overwritten inside the conditional block.
+* **0. You used to attend a place like this at some point**
+  * [0. You used to attend a place like this at some point](./0-classroom.js):
+ Implement a class named ClassRoom:
+
+Prototype: export default class ClassRoom
+It should accept one attribute named maxStudentsSize (Number) and assigned to _maxStudentsSize
+
+* **1. Let's make some classrooms**
+  * [1. Let's make some classrooms](./1-make_classrooms.js): 
+  Import the ClassRoom class from 0-classroom.js.
+
+Implement a function named initializeRooms. It should return an array of 3 ClassRoom objects with the sizes 19, 20, and 34 (in this order).
+
+* **2. A Course, Getters, and Setters**
+  * [2. A Course, Getters, and Setters](./2-hbtn_course.js):
+    Implement a class named HolbertonCourse:
+      Constructor attributes:
+      * name (String)
+      * length (Number)
+      * students (array of Strings)
+      Make sure to verify the type of attributes during object creation
+      Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+      Implement a getter and setter for each attribute.
+
+* **3. Methods, static methods, computed methods names..... MONEY**
+  * [3. Methods, static methods, computed methods names..... MONEY](./3-currency.js):
+    Implement a class named Currency:
+
+    - Constructor attributes:
+    * code (String)
+    * name (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter and setter for each attribute.
+    Implement a method named displayFullCurrency that will return the attributes in the following format name (code).
+
+* **4. Pricing**
+  * [4. Pricing](./4-pricing.js):
+    Import the class Currency from 3-currency.js
+
+    Implement a class named Pricing:
+
+    Constructor attributes:
+    * amount (Number)
+    * currency (Currency)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter and setter for each attribute.
+    Implement a method named displayFullPrice that returns the attributes in the following format amount currency_name (currency_code).
+    Implement a static method named convertPrice. It should accept two arguments: amount (Number), conversionRate (Number). The function should return the amount multiplied by the conversion rate.
 
 
-* **2. Arrow Functions**
-  * [2. Arrow Functions](.2-arrow.js): Rewrite the following standard function to use ES6’s arrow syntax of the function add (it will be an anonymous function after)
+* **5. A Building**
+  * [5. A Building](./5-building.js):
+ Implement a class named Building:
 
+    Constructor attributes:
+   * sqft (Number)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter for each attribute.
+    Consider this class as an abstract class. And make sure that any class that extends from it should implement a method named evacuationWarningMessage.
+    If a class that extends from it does not have a evacuationWarningMessage method, throw an error with the message Class extending Building must override evacuationWarningMessage
 
-* **3. Parameter defaults**
-  * [3. Parameter defaults](./3-default-parameter.js):
- Condense the internals of the following function to 1 line - without changing the name of each function/variable.
- Hint: The key here to define default parameter values for the function parameters.
+* **6. Inheritance**
+  * [6. Inheritance](./6-sky_high.js):
 
-* **4. Rest parameter syntax for functions**
-  * [4. Rest parameter syntax for functions](./4-rest-parameter.js):
- Modify the following function to return the number of arguments passed to it using the rest parameter syntax
+    Import Building from 5-building.js.
 
- 
-* **5. The wonders of spread syntax**
-  * [5. The wonders of spread syntax](./5-spread-operator.js):
-  Using spread syntax, concatenate 2 arrays and each character of a string by modifying the function below. Your function body should be one line long.
+    Implement a class named SkyHighBuilding that extends from Building:
 
-* **6. Take advantage of template literals**
-  * [6. Take advantage of template literals](./6-string-interpolation.js):
-  Rewrite the return statement to use a template literal so you can the substitute the variables you’ve defined.
+    Constructor attributes:
+    * sqft (Number) (must be assigned to the parent class Building)
+    * floors (Number)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    Implement a getter for each attribute.
+    Override the method named evacuationWarningMessage and return the following string Evacuate slowly the NUMBER_OF_FLOORS floors.
 
-* **7. Object property value shorthand syntax**
-  * [7. Object property value shorthand syntax](./7-getBudgetObject.js):
-  Notice how the keys and the variable names are the same?
-  Modify the following function’s budget object to simply use the keyname instead.
+* **7. Airport**
+  * [7. Airport](./7-airport.js):
+    Implement a class named Airport:
 
-  
-* **8. No need to create empty objects before adding in properties**
-  * [8. No need to create empty objects before adding in properties](./8-getBudgetCurrentYear.js):
-  Rewrite the getBudgetForCurrentYear function to use ES6 computed property names on the budget object
+    Constructor attributes:
+    * name (String)
+    * code (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    The default string description of the class should return the airport code (example below).
 
+* **8. Primitive - Holberton Class**
+  * [8. Primitive - Holberton Class](./8-hbtn_class.js):
+  Implement a class named HolbertonClass:
 
-* **9. ES6 method properties**
-  * [9. ES6 method properties](./9-getFullBudget.js):
-Rewrite getFullBudgetObject to use ES6 method properties in the fullBudget object
+    Constructor attributes:
+    * size (Number)
+    * location (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    When the class is cast into a Number, it should return the size.
+    When the class is cast into a String, it should return the location.a value starts with startString you only append the rest of the string. The string contains all the values of the set separated by -.
 
+* **9. Hoisting**
+  * [9. Hoisting](./9-hoisting.js):
 
-* **10. For...of Loops**
-  * [10. For...of Loops](./10-loops.js):
-Rewrite the function appendToEachArrayValue to use ES6’s for...of operator. And don’t forget that var is not ES6-friendly.
+  Fix this code and make it work.
 
+  const class2019 = new HolbertonClass(2019, 'San Francisco');
+  const class2020 = new HolbertonClass(2020, 'San Francisco');
 
-* **11. Iterator**
-  * [11. Iterator](./11-createEmployeesObject.js):
- Write a function named createEmployeesObject that will receive two arguments:
-  departmentName (String)
-  employees (Array of Strings)
+export class HolbertonClass {
+  constructor(year, location) {
+    this._year = year;
+    this._location = location;
+  }
 
+  get year() {
+    return this._year;
+  }
 
-* **12. Let's create a report object**
-  * [12. Let's create a report object](./12-createReportObject.js):
-Write a function named createReportObject whose parameter, employeesList, is the return value of the previous function createEmployeesObject.
-
-export default function createReportObject(employeesList) {
-
+  get location() {
+    return this._location;
+  }
 }
 
-createReportObject should return an object containing the key allEmployees and a method property called getNumberOfDepartments.
+const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
+const student2 = new StudentHolberton('John', 'Doe', class2020);
+const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
+const student4 = new StudentHolberton('Donald', 'Bush', class2019);
+const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
 
-allEmployees is a key that maps to an object containing the department name and a list of all the employees in that department. If you’re having trouble, use the spread syntax.
+export class StudentHolberton {
+  constructor(firstName, lastName) {
+    this._firstName = firstName;
+    this._lastName = lastName;
+    this._holbertonClass = holbertonClass;
+  }
 
-The method property receives employeesList and returns the number of departments. I would suggest suggest thinking back to the ES6 method property syntax.
+  get fullName() {
+    return `${this._firstName} ${this._lastName}`;
+  }
 
-* **13. Iterating through report objects**
-  * [13. Iterating through report objects](./100-createIteratorObject.js):
-Write a function named createIteratorObject, that will take into argument a report Object created with the previous function createReportObject.
+  get holbertonClass() {
+    return this.holbertonClass;
+  }
 
-This function will return an iterator to go through every employee in every department.
+  get fullStudentDescription() {
+    return `${self._firstName} ${self._lastName} - ${self._holbertonClass.year} - ${self._holbertonClass.location}`;
+  }
+}
 
-* **14. Iterate through object**
-  * [14. Iterate through object](./101-iterateThroughObject.js):
-  Finally, write a function named iterateThroughObject. The function’s parameter reportWithIterator is the return value from createIteratorObject.
 
+export const listOfStudents = [student1, student2, student3, student4, student5];
+
+* **10. Vroom**
+  * [10. Vroom](./10-car.js):
+  Create a function named updateUniqueItems that returns an updated map for all items with initial quantity at 1.
+  It should accept a map as an argument. The map it accepts for argument is similar to the map you create in the previous task.
+  For each entry of the map where the quantity is 1, update the quantity to 100. If updating the quantity is not possible (argument is not a map) the error Cannot process should be thrown.
+
+* **11. EVCar**
+  * [11. EVCar](./100-evcar.js):
+  Import Car from 10-car.js.
+
+    Implement a class named EVCar that extends the Car class:
+
+    Constructor attributes:
+    * brand (String)
+    * motor (String)
+    * color (String)
+    * range (String)
+    Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+    For privacy reasons, when cloneCar is called on a EVCar object, the object returned should be an instance of Car instead of EVCar.
